@@ -1,5 +1,5 @@
 {
-  "name": "WorkspaceAlberta - Google Drive Setup",
+  "name": "Google Drive AI Workspace",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   
   "features": {
@@ -14,36 +14,17 @@
         "ms-python.python"
       ],
       "settings": {
-        "chat.mcp.discovery.enabled": true,
         "workbench.startupEditor": "readme"
       }
-    },
-    "codespaces": {
-      "openFiles": [
-        "SETUP-GUIDE.md"
-      ]
     }
   },
   
-  "postCreateCommand": "bash .devcontainer/setup.sh",
-  
-  "secrets": {
-    "recommended": [
-      {
-        "name": "GOOGLE_CLIENT_ID",
-        "description": "Your Google Cloud OAuth Client ID (from console.cloud.google.com)"
-      },
-      {
-        "name": "GOOGLE_CLIENT_SECRET", 
-        "description": "Your Google Cloud OAuth Client Secret"
-      }
-    ]
-  },
+  "postCreateCommand": "npm install && echo 'Setup complete! Open SETUP-GUIDE.md to get started.'",
   
   "portsAttributes": {
     "3000": {
       "label": "OAuth Callback",
-      "onAutoForward": "openBrowser"
+      "onAutoForward": "notify"
     }
   },
 
